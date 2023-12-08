@@ -74,19 +74,19 @@
 
 
 .register-btn {
-  width: 50%;
+  width: 20%;
   margin: 40px auto;
 }
 
 .register-red-btn {
   width: 100%;
-  background: #8B7C72;
+  background: #403B34;
   border: 1px solid #8B7C72;
   border-radius: 10px;
   color: #fff;
   line-height: 48px;
-  font-size: 14px;
+  font-size: 16px;
   cursor: pointer;
-  letter-spacing: 10px;
+  letter-spacing: 5px;
 }
 
