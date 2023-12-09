@@ -6,4 +6,11 @@ class User < ApplicationRecord
 
 has_one_attached :avatar
 
+validates :name, presence: true
+validates :affiliation, presence: true
+validates :position, presence: true
+
+has_many :reviews
+has_many :comments
+
 end

@@ -16,9 +16,10 @@
         <input type="checkbox" id="user-menu-toggle">
         <label for="user-menu-toggle">
           <div class='avatar-img-content'>
-            <%= image_tag current_user.avatar, class: "avatar-img", id: "user-avatar" %>
+          <%= image_tag(current_user.avatar.attached? ? current_user.avatar : 'sample-user.png', class: "avatar-img", id: "user-avatar", alt: "Sample Avatar") %>
+<%#            <%= image_tag current_user.avatar, class: "avatar-img", id: "user-avatar" %>
           </div>
-          <%= current_user.name %>
+          <%= current_user.name %> <span class="toggle-icon">▼</span>
         </label>
         <ul class="user-menu-list">
           <li><%= link_to 'マイページ', user_path(current_user.id) %></li>

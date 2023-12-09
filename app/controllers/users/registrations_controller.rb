@@ -21,12 +21,12 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # PUT /resource
 
-  # def update　##更新追加するとき使う！！
-  #   super
-  #  if account_update_params[:avatar].present?
-  #    resource.avatar.attach(account_update_params[:avatar])
-  #  end
-  # end
+  def update
+    super
+   if account_update_params[:avatar].present?
+     resource.avatar.attach(account_update_params[:avatar])
+   end
+  end
 
   # DELETE /resource
   # def destroy
