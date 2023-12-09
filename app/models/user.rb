@@ -13,4 +13,6 @@ validates :position, presence: true
 has_many :reviews
 has_many :comments
 
+validates :password, format: { with: /\A(?=.*[a-zA-Z])(?=.*\d)[a-zA-Z\d]+\z/, message: 'Include both letters and number' }
+
 end
