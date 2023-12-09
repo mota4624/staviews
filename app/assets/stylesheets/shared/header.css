@@ -22,6 +22,8 @@
   margin-right: 10vw;
 }
 
+/*検索フォーム*/
+
 .search-form {
   width: 65vw;
   height: 5vh;
@@ -47,6 +49,7 @@
   width: 100%;
 }
 
+/*ヘッダーメニュー*/
 .nav {
   font-size: 25px;
   display: flex;
@@ -56,38 +59,41 @@
   padding: 1vh 0;
 }
 
-.lists-left {
-  display: flex;
-  min-width: 200px;
-
-}
-
-.category-list {
-  text-decoration: none;
-  margin-right: 3vw;
-  color: #333333;
-}
-
-.brand-list {
-  text-decoration: none;
-  color: #333333;
-}
-
 .lists-right {
   display: flex;
   list-style: none;
-  align-items: flex-end;
+  align-items: center;
 }
 
 
-.user-nickname {
+/*ユーザー名・写真*/
+.user-name {
   text-decoration: none;
   margin-right: 3vw;
-  color: #333333;
+  color: #0d0d0d;
+}
+
+.toggle-icon{
+  background: #fff;
+  margin: 0px 15px;
+  padding: 5px;
+  border-radius: 2px;
+  color: #555454;
+  border:  1px solid #555454;
+  font-size: 12px;
   font-weight: bold;
 }
 
+.avatar-img {
+  border: #d7d5d5 1px solid;
+  width:75px;
+  height:75px;
+  border-radius:50%;
+  margin-right: 1vw;
+}
 
+
+/*ログイン・ログアウト*/
 .logout {
   text-decoration: none;
   color: #333333;
@@ -103,4 +109,48 @@
 .sign-up {
   text-decoration: none;
   color: #333333;
+}
+
+
+/*ユーザーメニュー*/
+.user-menu {
+  position: relative;
+}
+
+.user-menu input {
+  display: none;
+}
+
+.user-menu label {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.user-menu-list {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #fff;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  text-align: left;
+  width: 150px; /* メニューの幅を調整してください */
+}
+
+.user-menu input:checked + label + .user-menu-list {
+  display: block;
+}
+
+.user-menu-list li {
+  padding: 10px;
+}
+
+.user-menu-list li a {
+  text-decoration: none;
+  color: #333;
+  display: block;
 }

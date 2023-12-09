@@ -31,11 +31,12 @@
 
 /* 共通 */
 .indispensable {
-  background: #ea352d;
+  background: #fff;
   margin-left: 8px;
   padding: 3px;
   border-radius: 2px;
-  color: #fff;
+  color: #ea352d;
+  border:  1px solid #ea352d;
   font-size: 12px;
   font-weight: bold;
 }

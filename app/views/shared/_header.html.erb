@@ -9,17 +9,28 @@
 <%#       </button>
        </form>%>
   </div>
-  <div class='nav'>
-    <ul class='lists-right'>
-    <li><%= link_to 'ログイン', "#", class: "login" %></li>
-    <li><%= link_to '新規登録', "#", class: "sign-up" %></li>
-<%#       <% if user_signed_in? %>
-<%#        <li><%= link_to current_user.nickname, root_path, class: "user-nickname" %></li>
-<%#        <li><%= link_to 'ログアウト', destroy_user_session_path, data: { turbo_method: :delete }, class: "logout"  %></li>
-<%#        <% else %>
-<%#       <li><%= link_to 'ログイン', new_user_session_path, class: "login" %></li>
-<%#       <li><%= link_to '新規登録', new_user_registration_path, class: "sign-up" %></li>
-<%#       <% end %>
-    </ul>
-  </div>
+<div class='nav'>
+  <ul class='lists-right'>
+    <% if user_signed_in? %>
+      <li class="user-menu">
+        <input type="checkbox" id="user-menu-toggle">
+        <label for="user-menu-toggle">
+          <div class='avatar-img-content'>
+          <%= image_tag(current_user.avatar.attached? ? current_user.avatar : 'sample-user.png', class: "avatar-img", id: "user-avatar", alt: "Sample Avatar") %>
+<%#            <%= image_tag current_user.avatar, class: "avatar-img", id: "user-avatar" %>
+          </div>
+          <%= current_user.name %> <span class="toggle-icon">▼</span>
+        </label>
+        <ul class="user-menu-list">
+          <li><%= link_to 'マイページ', user_path(current_user.id) %></li>
+          <li><%= link_to '編集', edit_user_registration_path %></li>
+          <li><%= link_to 'ログアウト', destroy_user_session_path, data: { turbo_method: :delete } %></li>
+        </ul>
+      </li>
+    <% else %>
+      <li><%= link_to 'ログイン', new_user_session_path, class: "login" %></li>
+      <li><%= link_to '新規登録', new_user_registration_path, class: "sign-up" %></li>
+    <% end %>
+  </ul>
+</div>
 </header>
