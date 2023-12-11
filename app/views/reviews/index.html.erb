@@ -17,7 +17,7 @@
 </div>
 
   <%# 投稿ボタン %>
-<%= link_to("#" , class: 'purchase-btn', data: { turbo: false }) do %>
+<%= link_to(new_review_path , class: 'purchase-btn', data: { turbo: false }) do %>
   <span class='purchase-btn-text'>投稿する</span>
   <%= image_tag 'staviews-posticon2.png' , size: '185x50' ,class: "purchase-btn-icon" %>
 <% end %>
