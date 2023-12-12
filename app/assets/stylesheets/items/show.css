@@ -1,7 +1,7 @@
 /* 商品の概要 */
 
 .item-show {
-  background-color: #f8f8f8;
+  background-color: #FFF;
   width: 100vw;
   display: flex;
   flex-direction: column;
@@ -19,7 +19,7 @@
   align-items: center;
 }
 
-.item-box>.name {
+.name {
   text-align: center;
   font-weight: bold;
   font-size: 25px;
@@ -33,44 +33,31 @@
   object-fit: contain;
 }
 
-.item-price-box {
-  margin: 25px 0px;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-}
-
-.item-price-box>.item-price {
-  font-size: 4vh;
-  font-weight: bold;
-}
-
-.item-price-box>.item-postage {
+.item-postage {
   font-size: 16px;
+  margin-bottom: 20px;
 }
 
 
 .item-red-btn {
   text-align: center;
-  background-color: #ea352d;
+  background-color: orange;
   font-size: 24px;
-  font-weight: bold;
   color: #FFF;
-  margin: 20px 0px;
-  padding: 2vh 10vw;
+  margin: 20px;
+  padding: 20px;
+  border-radius: 10px;
 }
 
-.or-text {
-  font-size: 20px;
-}
 
 .item-destroy {
   background-color: lightgray;
   text-align: center;
   font-size: 24px;
   color: black;
-  margin: 20px 0px;
-  padding: 2vh 10vw;
+  margin: 20px;
+  padding: 20px;
+  border-radius: 10px;
 }
 
 .item-explain-box {
@@ -80,7 +67,7 @@
 }
 
 .detail-table {
-  margin-bottom: 30px;
+  margin: 30px 0px;
   width: 100%;
 }
 
@@ -106,37 +93,21 @@
 }
 
 .favorite-btn {
-  border-radius: 40px;
+  border-radius: 10px;
   width: 15vw;
   min-width: 200px;
-  color: rgb(249, 75, 0);
-  border: 2px solid #ffb340;
+  color: #403B34;
+  border: 2px solid #403B34;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-right: 20px;
+  padding: 10px;
 }
 
-.favorite-star-icon {
+.favorite-light-icon {
   margin-right: 5px;
 }
 
-.report-btn {
-  border-radius: 40px;
-  width: 15vw;
-  min-width: 200px;
-
-  padding: 1vh 0;
-  color: black;
-  border: 2px solid #2d2d2d;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.report-flag-icon {
-  margin-right: 5px;
-}
 
 
 /* /商品の概要 */
@@ -144,7 +115,7 @@
 .comment-box {
   width: 40vw;
   background-color: #fff;
-  margin: 5vh 0;
+  margin: 1vh 0 2vh;
   text-align: center;
 }
 
@@ -158,20 +129,20 @@
 
 .comment-warn {
   padding: 10px;
-  font-size: 14px;
+  font-size: 20px;
   margin: 10px 0px;
   text-align: left;
 }
 
 .comment-btn {
   line-height: 48px;
-  background-color: #3CCACE;
-  border: 1px solid #3CCACE;
+  background-color: #403B34;
+  border: 1px solid #403B34;
   color: #fff;
   width: 50%;
   min-width: 150px;
   font-size: 18px;
-  border-radius: 100px;
+  border-radius: 10px;
   margin-bottom: 2vh;
 }
 

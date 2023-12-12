@@ -1,6 +1,7 @@
 class ReviewsController < ApplicationController
 
   def index
+  @reviews = Review.includes(:user).order('created_at DESC')
   end
 
   def new
@@ -14,6 +15,10 @@ class ReviewsController < ApplicationController
         else
       render :new, status: :unprocessable_entity
     end
+  end
+
+  def show
+    @review = Review.find(params[:id])
   end
 
   private

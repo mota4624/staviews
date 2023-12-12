@@ -23,6 +23,42 @@
 <% end %>
   <%# 投稿ボタン %>
 
+    <%# 商品一覧 %>
+  <div class='item-contents'>
+    <h2 class='title'>投稿レビュー一覧</h2>
+    <div class="subtitle" >
+      新規投稿商品
+    </div>
+    <ul class='item-lists'>
+
+      <%# 商品のインスタンス変数になにか入っている場合、中身のすべてを展開 %>
+      <% @reviews.each do |review| %>
+      <li class='list'>
+        <%= link_to review_path(review.id) do %>
+        <div class='item-img-content'>
+          <%= image_tag review.images[0], class: "item-img" %>
+          <% end %>
+        </div>
+
+        <div class='item-info'>
+          <h3 class='item-name'>
+            <%= review.title %>
+          </h3>
+          <div class='item-price'>
+            <%= review.product_name %>
+            </div>
+          </div>
+        </div>
+      </li>
+      <% end %>
+
+      <%# //商品がない場合は以下のダミー商品を表示 %>
+
+    </ul>
+
+  </div>
+  <%# /商品一覧 %>
+
   <%# フッター %>
   <%#<%= render "shared/footer" %>
   <%# フッター %>

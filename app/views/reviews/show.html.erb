@@ -1,0 +1,97 @@
+<%= render "shared/second-header"%>
+
+<%# 投稿の概要 %>
+<div class="item-show">
+  <div class="item-box">
+   <div class="item-img-content">
+    <% if @review.images.attached? %>
+     <% @review.images.each do |image| %>
+     <%= image_tag image.variant(resize: '500x500') %>
+     <% end %>
+    <% end %>
+    </div>
+
+
+    <h2 class="name">
+      <%= @review.title %>
+    </h2>
+      <div class="item-postage">
+        <%= @review.user.affiliation  %>
+        <%= @review.user.position  %>
+        <%= @review.user.name  %>
+      </div>
+ 
+   <%# ユーザーによって表示ボタンを変える %>
+    <div>
+    <% if user_signed_in? %>
+      <% if current_user.id == @review.user_id %>
+
+        <%= link_to "投稿の編集", "#", method: :get, class: "item-red-btn" %>
+        <%= link_to "投稿の削除",  "#", data: { turbo_method: :delete }, method: :delete, class:"item-destroy" %>
+
+      <% end %>
+    <% end %>
+    </div>
+
+    <table class="detail-table">
+      <tbody>
+        <tr>
+          <th class="detail-item">カテゴリー</th>
+          <td class="detail-value"><%= Category.find(@review.category_id).name %></td>
+        </tr>
+        <tr>
+          <th class="detail-item">商品名</th>
+          <td class="detail-value"><%= @review.product_name %></td>
+        </tr>
+        <tr>
+          <th class="detail-item">メーカー</th>
+          <td class="detail-value"><%= @review.brand %></td>
+        </tr>
+        <tr>
+          <th class="detail-item">購入日</th>
+          <td class="detail-value"><%= @review.purchase_date %></td>
+        </tr>
+        <tr>
+          <th class="detail-item">使用者</th>
+          <td class="detail-value"><%= @review.user_type %></td>
+        </tr>
+        <tr>
+          <th class="detail-item">購入理由について</th>
+          <td class="detail-value"><%= @review.positive_point %></td>
+        </tr>
+        <tr>
+          <th class="detail-item">実際に使ってみた感想</th>
+          <td class="detail-value"><%= @review.negative_point %></td>
+        </tr>
+        <tr>
+          <th class="detail-item">こんなお客様におすすめしたい</th>
+          <td class="detail-value"><%= @review.recommendation %></td>
+        </tr>
+
+      </tbody>
+    </table>
+    <div class="option">
+      <div class="favorite-btn">
+        <%= image_tag "light3.png" ,class:"favorite-light-icon" ,width:"20",height:"20"%>
+        <span>参考になった 0</span>
+      </div>
+    </div>
+  </div>
+  <%# /商品の概要 %>
+
+  <%# /コメント欄 %>
+  <div class="comment-box">
+    <form>
+      <p class="comment-warn">
+        この投稿についての質問・コメントはこちらにお願いします。
+      </p>
+      <textarea class="comment-text"></textarea>
+
+      <button type="submit" class="comment-btn">
+        <span>コメントする<span>
+      </button>
+    </form>
+  </div>
+    <%# /コメント欄 %>
+
+<%= render "shared/footer" %>
