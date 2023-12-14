@@ -54,14 +54,6 @@ a {
   font-weight: bold;
 }
 
-.item-contents>.subtitle {
-  font-size: 3vh;
-  margin: 1vh 0;
-  text-decoration: none;
-  color: #3ccace;
-  font-weight: bold;
-}
-
 .item-lists {
   width: 100vw;
   display: flex;
@@ -70,36 +62,22 @@ a {
 }
 
 .item-lists>.list {
+  list-style-type: none; /* リストのマーカーを非表示にする */
   width: 37vh;
   padding: 1vw;
   background-color: #FFF;
 }
 
-
 .item-img-content {
-  position: relative;
+  display: flex;
+  flex-wrap: wrap; /* 要素が親要素からはみ出した場合、次の行に折り返す */
+  gap: 10px; /* 各アイテムの間に隙間を設定（必要に応じて調整） */
 }
 
 .item-img {
   width: 33vh;
   height: 33vh;
 }
-
-.sold-out {
-  position: absolute;
-  top: 40%;
-  width: 100%;
-  text-align: center;
-  background-color: crimson;
-  transform: skewY(-10deg);
-}
-
-.sold-out>span {
-  color: #FFF;
-  font-size: 45px;
-  font: bold;
-}
-
 
 .item-info {
   background-color: #FFF;
@@ -111,12 +89,17 @@ a {
   font-size: 2.5vh;
 }
 
-.item-price {
+.product-name {
   font-size: 1.5vh;
   display: flex;
   justify-content: space-between;
 }
 
+.user-info-index{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
 
 .star-btn {
   display: flex;

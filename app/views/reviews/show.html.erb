@@ -11,7 +11,6 @@
     <% end %>
     </div>
 
-
     <h2 class="name">
       <%= @review.title %>
     </h2>
@@ -26,8 +25,8 @@
     <% if user_signed_in? %>
       <% if current_user.id == @review.user_id %>
 
-        <%= link_to "投稿の編集", "#", method: :get, class: "item-red-btn" %>
-        <%= link_to "投稿の削除",  "#", data: { turbo_method: :delete }, method: :delete, class:"item-destroy" %>
+        <%= link_to "投稿の編集", edit_review_path, method: :get, class: "item-red-btn" %>
+        <%= link_to "投稿の削除",  review_path(@review.id), data: { turbo_method: :delete }, method: :delete, class:"item-destroy" %>
 
       <% end %>
     <% end %>

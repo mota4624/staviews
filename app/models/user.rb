@@ -4,15 +4,14 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-has_one_attached :avatar
+  has_one_attached :avatar
 
-validates :name, presence: true
-validates :affiliation, presence: true
-validates :position, presence: true
+  validates :name, presence: true
+  validates :affiliation, presence: true
+  validates :position, presence: true
 
-has_many :reviews
-has_many :comments
+  has_many :reviews
+  has_many :comments
 
-validates :password, format: { with: /\A(?=.*[a-zA-Z])(?=.*\d)[a-zA-Z\d]+\z/, message: 'Include both letters and number' }
-
+  validates :password, format: { with: /\A(?=.*[a-zA-Z])(?=.*\d)[a-zA-Z\d]+\z/, message: 'Include both letters and number' }
 end
