@@ -43,15 +43,17 @@
 
         <div class='item-info'>
           <h3 class='item-name'>
-            <%= review.title %>
-          </h3>
-          <div class='product-name'>
             <%= review.product_name %>
-          </div>
+          </h3>
+
           <div class='user-info-index'>
-          <div class='avatar-img-content'>
-            <%= image_tag(current_user.avatar.attached? ? current_user.avatar : 'sample-user.png', class: "avatar-img", id: "user-avatar", alt: "Sample Avatar") %>
-          </div>
+            <div class='avatar-img-content'>
+              <% if review.user.present? && review.user.avatar.attached? %>
+                <%= image_tag review.user.avatar, class: "avatar-img", id: "user-avatar", alt: "User Image" %>
+              <% else %>
+                <%= image_tag 'sample-user.png', class: "avatar-img", id: "user-avatar", alt: "Sample Image" %>
+              <% end %>
+  </div>
           <div class='product-name'>
             <%= review.user.affiliation %>
             <%= review.user.position %></br>

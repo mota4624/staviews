@@ -76,7 +76,9 @@ a {
 
 .item-img {
   width: 33vh;
-  height: 33vh;
+  height: 50vh;
+  border-radius: 20px;
+  object-fit: cover
 }
 
 .item-info {
@@ -87,12 +89,15 @@ a {
 
 .item-name {
   font-size: 2.5vh;
+  font-weight: bold;
+  margin-bottom: 1vh;
 }
 
 .product-name {
-  font-size: 1.5vh;
+  font-size: 1.6vh;
   display: flex;
   justify-content: space-between;
+  margin-left: 20px;
 }
 
 .user-info-index{
