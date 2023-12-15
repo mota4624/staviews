@@ -3,6 +3,10 @@ class ReviewsController < ApplicationController
 
   def index
     @reviews = Review.includes(:user).order('created_at DESC')
+    
+    @q = Review.ransack(params[:q])
+    @reviews = @q.result(distinct: true).includes(:user).order(created_at: :desc)
+    
   end
 
   def new

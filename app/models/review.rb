@@ -17,6 +17,15 @@ class Review < ApplicationRecord
   validates :title, :product_name, :brand, :purchase_date, :user_type, :positive_point, :negative_point, :recommendation,
             presence: true
 
+  def self.ransackable_attributes(auth_object = nil)
+    ["brand", "category_id", "created_at", "id", "negative_point", "positive_point", "product_name", "purchase_date", "recommendation", "title", "updated_at", "user_id", "user_type"]
+  end
+
+  def self.ransackable_associations(auth_object = nil)
+    ["category", "comments", "images_attachments", "images_blobs", "user"]
+  end
+   
+
   private
 
   def validate_image_count
