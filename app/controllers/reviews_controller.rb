@@ -1,5 +1,5 @@
 class ReviewsController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :edit, :destroy] # ログインしてなければログイン画面へ戻す
+  before_action :authenticate_user!, except: [:index, :show]
 
   def index
     @reviews = Review.includes(:user).order('created_at DESC')
