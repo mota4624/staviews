@@ -32,10 +32,10 @@ BASIC認証パスワード：2222
 
 ## 実装した機能についての画像やGIFおよびその説明
 - 投稿機能、一覧表示
-[![Image from Gyazo](https://i.gyazo.com/76c7c0a0b1f546cdc34661ffb85159b9.gif)](https://gyazo.com/76c7c0a0b1f546cdc34661ffb85159b9)  
+![76c7c0a0b1f546cdc34661ffb85159b9](https://github.com/mota4624/staviews/assets/148955263/012b7313-7030-452d-a43c-901791fc1f5c)
 
 - 検索機能
-[![Image from Gyazo](https://i.gyazo.com/74819e2b5c5c74d844bc5efe6f2d0d74.gif)](https://gyazo.com/74819e2b5c5c74d844bc5efe6f2d0d74)
+![74819e2b5c5c74d844bc5efe6f2d0d74](https://github.com/mota4624/staviews/assets/148955263/0cad672a-e3aa-4433-895d-90f1e5eba949)
 
 ## 実装予定の機能
 - 参考になったボタンの実装(いいね機能)  
