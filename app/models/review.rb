@@ -14,7 +14,7 @@ class Review < ApplicationRecord
   validates :category_id, numericality: { other_than: 1, message: "can't be blank" }
 
   # reviewのバリデーション
-  validates :title, :product_name, :brand, :purchase_date, :user_type, :positive_point, :negative_point, :recommendation,
+  validates :images, :title, :product_name, :brand, :purchase_date, :user_type, :positive_point, :negative_point, :recommendation,
             presence: true
 
   def self.ransackable_attributes(auth_object = nil)
@@ -30,7 +30,6 @@ class Review < ApplicationRecord
 
   def validate_image_count
     return unless images.count > 3
-
     errors.add(:images, 'You can only upload up to 3 images.')
   end
 end
