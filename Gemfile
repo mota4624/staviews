@@ -90,3 +90,5 @@ gem 'pry-rails'
 gem 'ransack'
 
 gem 'faker'
+
+gem "aws-sdk-s3", require: false
