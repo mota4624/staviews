@@ -3,7 +3,6 @@
   <%# ヘッダー %>
 
 <div class='main'>
-
   <%# 画面上部のstaviewsタイトル画像部分 %>
   <div class='title-contents'>
     <h2 class='service-title'>
@@ -16,13 +15,82 @@
   <%# 画面上部のstaviewsタイトル画像部分 %>
 </div>
 
+
+  <%# 検索欄 %>
+  <div class='item-contents'>
+
+<%= search_form_for @q, url: reviews_path, method: :get, class: "search-form", id: "search-form" do |f| %>
+  <div class="search-form">
+    <%= f.label :product_name_cont, "商品名検索", class: "search-label" %>
+    <%= f.search_field :product_name_cont, class: "input-box", placeholder: "指定なし" %>
+    <%= f.label :category_id_eq, "カテゴリ指定", class: "search-label" %>
+    <%= f.collection_select(:category_id_eq, Category.where.not(name: '---'), :id, :name, include_blank: "指定なし") %>
+    <%= f.button class: "search-button" do %>
+      <%= image_tag 'search.png', class:"search-icon" %>
+    <% end %>
+  </div>
+<% end %>
+
+  <%# 検索欄 %>
+
+  <%# 投稿一覧 %>
+  <%#    <h2 class='title'>投稿レビュー</h2>%>
+
+    <ul class='item-lists'>
+      <%# 投稿のインスタンス変数になにか入っている場合、中身のすべてを展開 %>
+      <% @reviews.each do |review| %>
+      <li class='list'>
+      <%= link_to review_path(review.id) do %>
+      <div class='item-img-content'>
+        <% if review.images.present? %>
+          <%= image_tag review.images[0], class: "item-img" %>
+        <% else %>
+          <%= image_tag 'sample-user.png', class: "item-img", alt: "Sample Image" %>
+        <% end %>
+      </div>
+
+        <div class='item-info'>
+          <h3 class='item-name'>
+            <%= review.product_name %>
+          </h3>
+
+          <div class='user-info-index'>
+            <div class='avatar-img-content'>
+             <% if review.user.present? && review.user.avatar.attached? %>
+               <%= link_to user_path(review.user.id) do %>
+               <%= image_tag review.user.avatar, class: "avatar-img", id: "user-avatar", alt: "User Image" %>
+               <% end %>
+             <% else %>
+               <%= link_to user_path(review.user.id) do %>
+               <%= image_tag 'sample-user.png', class: "avatar-img", id: "user-avatar", alt: "Sample Image" %>
+               <% end %>
+             <% end %>
+            </div>
+            <div class='product-name'>
+             <%= link_to user_path(review.user.id) do %>
+             <%= review.user.affiliation %>
+             <%= review.user.position %></br>
+             <%= review.user.name %>
+             <% end %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+      </li>
+      <% end %>
+      <%# //投稿がない場合は以下のダミー投稿を表示 %>
+
+    </ul>
+  </div>
+  <%# /投稿一覧 %>
+
   <%# 投稿ボタン %>
-<%= link_to("#" , class: 'purchase-btn', data: { turbo: false }) do %>
+<%= link_to(new_review_path , class: 'purchase-btn', data: { turbo: false }) do %>
   <span class='purchase-btn-text'>投稿する</span>
-  <%= image_tag 'staviews-posticon2.png' , size: '185x50' ,class: "purchase-btn-icon" %>
+  <%= image_tag 'comment.png' , size: '185x70' ,class: "purchase-btn-icon" %>
 <% end %>
   <%# 投稿ボタン %>
 
   <%# フッター %>
-  <%#<%= render "shared/footer" %>
+<%= render "shared/footer" %>
   <%# フッター %>

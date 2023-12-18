@@ -2,12 +2,7 @@
 <header class='top-page-header'>
   <div class='search-bar-contents'>
      <%= link_to image_tag("staviews-logo.png", class:"staviews-icon"), "/" %>
-<%#    <form class="search-form" action="#">
-        <input class='input-box' placeholder='キーワードから探す'>
-          <button class="search-button">
-          <%= image_tag "#", class:"search-icon" %>
-<%#       </button>
-       </form>%>
+
   </div>
 <div class='nav'>
   <ul class='lists-right'>
@@ -17,7 +12,6 @@
         <label for="user-menu-toggle">
           <div class='avatar-img-content'>
           <%= image_tag(current_user.avatar.attached? ? current_user.avatar : 'sample-user.png', class: "avatar-img", id: "user-avatar", alt: "Sample Avatar") %>
-<%#            <%= image_tag current_user.avatar, class: "avatar-img", id: "user-avatar" %>
           </div>
           <%= current_user.name %> <span class="toggle-icon">▼</span>
         </label>

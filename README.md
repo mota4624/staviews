@@ -17,7 +17,7 @@
 
 ## reviews テーブル
 | title          | string     | null: false                    |
-| category       | integer    | null: false                    |
+| category_id    | integer    | null: false                    |
 | product_name   | string     | null: false                    |
 | brand          | string     | null: false                    |
 | purchase_date  | date       | null: false                    |
