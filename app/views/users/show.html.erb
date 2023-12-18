@@ -1,9 +1,47 @@
-<div class="contents row">
-  <p><%= @name %>さんの投稿一覧</p>
-<%#  <% @reviews.each do |review| %>
-<%#    <div class="content_post" style="background-image: url(<%= review.image %>);">
-<%#      <p><%= review.text %></p>
-<%#      <span class="name"><%= review.name %></span>
-<%#    </div>
-  <% end %>
-</div>
+<%= render "shared/second-header"%>
+
+  <div class='form-header'>
+    <h1 class='form-header-text'>
+   <%= @user.name %>さんの投稿一覧
+    </h1>
+  </div>
+
+   <ul class='item-lists'>
+      <%# 投稿のインスタンス変数になにか入っている場合、中身のすべてを展開 %>
+      <% @reviews.each do |review| %>
+      <li class='list'>
+      <%= link_to review_path(review.id) do %>
+      <div class='item-img-content'>
+        <% if review.images.present? %>
+          <%= image_tag review.images[0], class: "item-img" %>
+        <% else %>
+          <%= image_tag 'sample-user.png', class: "item-img", alt: "Sample Image" %>
+        <% end %>
+      </div>
+
+        <div class='item-info'>
+          <h3 class='item-name'>
+            <%= review.product_name %>
+          </h3>
+
+          <div class='user-info-index'>
+            <div class='avatar-img-content'>
+              <% if review.user.present? && review.user.avatar.attached? %>
+                <%= image_tag review.user.avatar, class: "avatar-img", id: "user-avatar", alt: "User Image" %>
+              <% else %>
+                <%= image_tag 'sample-user.png', class: "avatar-img", id: "user-avatar", alt: "Sample Image" %>
+              <% end %>
+          </div>
+          <div class='product-name'>
+            <%= review.user.affiliation %>
+            <%= review.user.position %></br>
+            <%= review.user.name %>
+           </div>
+          </div>
+        </div>
+      <% end %>
+      </li>
+      <% end %>
+
+<%= render "shared/footer" %>
+

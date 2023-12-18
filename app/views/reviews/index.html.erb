@@ -56,17 +56,23 @@
 
           <div class='user-info-index'>
             <div class='avatar-img-content'>
-              <% if review.user.present? && review.user.avatar.attached? %>
-                <%= image_tag review.user.avatar, class: "avatar-img", id: "user-avatar", alt: "User Image" %>
-              <% else %>
-                <%= image_tag 'sample-user.png', class: "avatar-img", id: "user-avatar", alt: "Sample Image" %>
-              <% end %>
-          </div>
-          <div class='product-name'>
-            <%= review.user.affiliation %>
-            <%= review.user.position %></br>
-            <%= review.user.name %>
-           </div>
+             <% if review.user.present? && review.user.avatar.attached? %>
+               <%= link_to user_path(review.user.id) do %>
+               <%= image_tag review.user.avatar, class: "avatar-img", id: "user-avatar", alt: "User Image" %>
+               <% end %>
+             <% else %>
+               <%= link_to user_path(review.user.id) do %>
+               <%= image_tag 'sample-user.png', class: "avatar-img", id: "user-avatar", alt: "Sample Image" %>
+               <% end %>
+             <% end %>
+            </div>
+            <div class='product-name'>
+             <%= link_to user_path(review.user.id) do %>
+             <%= review.user.affiliation %>
+             <%= review.user.position %></br>
+             <%= review.user.name %>
+             <% end %>
+            </div>
           </div>
         </div>
       <% end %>
