@@ -102,6 +102,7 @@
   border-radius: 10px;
   width: 15vw;
   min-width: 200px;
+  height: 5vh;
   color: #403B34;
   border: 2px solid #403B34;
   display: flex;

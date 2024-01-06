@@ -4,8 +4,10 @@ Rails.application.routes.draw do
   resources :users, only: :show
 
   resources :reviews do
+    resource :helpfuls, only: [:create, :destroy]
     collection do
       get 'search'
     end
   end
+
 end

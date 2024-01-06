@@ -2,6 +2,12 @@ class Review < ApplicationRecord
   # reviewのアソシエーション
   belongs_to :user
   has_many :comments
+  has_many :helpfuls
+
+  # いいね済みかどうか判定
+  def helpfuled?(user)
+    helpfuls.where(user_id: user.id).exists?
+  end
 
   # ActiveStorage用
   has_many_attached :images

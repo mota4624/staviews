@@ -12,6 +12,7 @@ class User < ApplicationRecord
 
   has_many :reviews
   has_many :comments
+  has_many :helpfuls
 
   validates :password, format: { with: /\A(?=.*[a-zA-Z])(?=.*\d)[a-zA-Z\d]+\z/, message: 'Include both letters and number' }
 end

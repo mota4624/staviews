@@ -69,12 +69,17 @@
 
       </tbody>
     </table>
+
     <div class="option">
       <div class="favorite-btn">
-        <%= image_tag "light-icon.png" ,class:"favorite-light-icon" ,width:"20",height:"20"%>
-        <span>参考になった 0</span>
+      <div id="favorite-btn<%= @review.id %>">
+        <%= image_tag "light-icon.png" ,class:"favorite-light-icon" ,width:"22",height:"22"%>
+
+    <%= render partial: "helpfuls/helpful", locals: { review: @review } %>
+
       </div>
     </div>
+
   </div>
   <%# /商品の概要 %>
 
