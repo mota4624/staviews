@@ -3,6 +3,7 @@ class Review < ApplicationRecord
   belongs_to :user
   has_many :comments
   has_many :helpfuls
+  has_many :comments
 
   # いいね済みかどうか判定
   def helpfuled?(user)

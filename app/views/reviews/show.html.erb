@@ -84,18 +84,58 @@
   <%# /商品の概要 %>
 
   <%# /コメント欄 %>
-  <div class="comment-box">
-    <form>
-      <p class="comment-warn">
-        この投稿についての質問・コメントはこちら
-      </p>
-      <textarea class="comment-text"></textarea>
 
-      <button type="submit" class="comment-btn">
-        <span>コメントする<span>
-      </button>
-    </form>
+
+    <div class="comments">
+
+        <p class="comment-warn">
+        コメント一覧
+        </p>
+
+    <% @comments.each do |comment| %>
+    <div class="comments-index">
+      <div class='comment-user-info-index'>
+        <div class='avatar-img-content'>
+          <% if comment.user.avatar.attached? %>
+               <%= link_to user_path(comment.user.id) do %>
+               <%= image_tag comment.user.avatar, class: "avatar-img", id: "user-avatar", alt: "User Image" %>
+               <% end %>
+             <% else %>
+               <%= link_to user_path(comment.user.id) do %>
+               <%= image_tag 'sample-user.png', class: "avatar-img", id: "user-avatar", alt: "Sample Image" %>
+               <% end %>
+             <% end %>
+        </div>
+        <div class='comment-user-info'>
+          <%= link_to user_path(comment.user.id) do %>
+          <%= comment.user.affiliation %>
+          <%= comment.user.name %>
+          <% end %>
+        </div>
+      </div>
+      <div class='comment-content'>
+      <%= comment.content %>
+      </div>
+    </div>
+      <% end %>
+
+  <div class="comment-box">
+      <% if user_signed_in? %>
+       <%= form_with(model: [@review, @comment], local: true) do |form| %>
+       <%= form.text_area :content, placeholder: "質問・コメントをする", rows: "2", class: "comment-text" %>
+       <%= form.submit "コメントする", class: "comment-btn" %>
+       <% end %>
+      <% else %>
+       <strong><p class="comment-login-warn">
+        ※※ コメントの投稿には新規登録/ログインが必要です ※※
+        </p></strong>
+      <% end %>
   </div>
+
+    </div>
+
+
+
     <%# /コメント欄 %>
 
 <%= render "shared/footer" %>
