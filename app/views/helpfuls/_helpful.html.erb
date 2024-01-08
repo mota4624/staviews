@@ -1,11 +1,11 @@
         <% if user_signed_in? && @review.helpfuled?(current_user)%>
          <%# 一致するレコードが存在する＝すでにいいね済みの場合はdestroyアクションへ %>
-         <%= link_to review_helpfuls_path(@review.id), data: { turbo_method: :delete }, remote: true do %>
+         <%= link_to review_helpfuls_path(@review.id), data: { turbolinks: false, turbo_method: :delete }, remote: true do %>
          <span style="color:orange;">参考になった <%= @review.helpfuls.count %>件</span>
          <% end %>
         <% else %>
          <%# 一致するレコードが存在しない＝まだいいねしていない場合はcreateアクションへ %>
-         <%= link_to review_helpfuls_path(@review.id), data: { turbo_method: :post }, remote: true do %>
+         <%= link_to review_helpfuls_path(@review.id), data: { turbolinks: false, turbo_method: :post }, remote: true do %>
          <span>参考になった <%= @review.helpfuls.count %>件</span>
          <% end %>
         <% end %>

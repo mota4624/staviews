@@ -161,7 +161,6 @@
 /* コメント投稿 */
 .comment-box {
   width: 40vw;
-
   margin: 1vh 0 2vh;
   text-align: center;
 }
@@ -172,6 +171,7 @@
   padding: 10px;
   border: solid 2px #dedede;
   resize: none;
+  border-radius: 5px; /* 角丸 */
 }
 
 .comment-warn {
