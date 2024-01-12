@@ -20,5 +20,4 @@ class HelpfulsController < ApplicationController
   def set_review
     @review = Review.find(params[:review_id])
   end
-
 end

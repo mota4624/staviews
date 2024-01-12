@@ -92,6 +92,9 @@
         コメント一覧
         </p>
 
+<% if @comments.blank? %>
+  <p class="no-comments-message">この投稿に対する質問・コメントはこちらからお願いします。</p>
+<% else %>
     <% @comments.each do |comment| %>
     <div class="comments-index">
       <div class='comment-user-info-index'>
@@ -118,6 +121,7 @@
       </div>
     </div>
       <% end %>
+<% end %>
 
   <div class="comment-box">
       <% if user_signed_in? %>
