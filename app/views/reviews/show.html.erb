@@ -3,13 +3,16 @@
 <%# 投稿の概要 %>
 <div class="item-show">
   <div class="item-box">
-   <div class="item-img-content">
-    <% if @review.images.attached? %>
-     <% @review.images.each do |image| %>
-     <%= image_tag image.variant(resize: '500x500') %>
-     <% end %>
+<!-- sliderクラスはJSでの操作を適応するため -->
+
+<div class="slider">
+  <% if @review.images.attached? %>
+    <% @review.images.each do |image| %>
+      <%= image_tag image.variant(resize: '500x500'), class: 'slider-item rounded' %>
     <% end %>
-    </div>
+  <% end %>
+</div>
+
 
     <h2 class="name">
       <%= @review.title %>
